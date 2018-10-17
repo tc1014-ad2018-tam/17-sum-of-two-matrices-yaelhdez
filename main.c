@@ -12,12 +12,18 @@
  */
 
 int main() {
-    int a[3][3];
+    int length; //lenght variable
 
-    // Get the size of A to use it as base size (length)
-    // for the other matrices
-    int length = sizeof(a) / sizeof(a[0]);
+    do {
+        printf("Size of array n*n:");
+        scanf("%d", &length); //lenght of the array request
 
+        if (length<1 || length>10){ //notice the user that he/she needs to write a value between 1 and 10
+            printf("\nThe size of the array needs to be a value between 1 and 10\n");
+        }
+    }while(length<1 || length>10); //This loop obligate the user to enter a value between 1 and 10
+
+    int a[length][length];
     int b[length][length];
     int c[length][length];
 
@@ -25,7 +31,7 @@ int main() {
     int totalSize = length * length;
     int count = 0; // Stores the current number displayed on console
 
-    printf("Please write %d int numbers for matrix A.\n", totalSize);
+    printf("\nPlease write %d int numbers for matrix A.\n", totalSize);
     for (int x = 0; x < length; x++) { // Iterate through main index
         for (int y = 0; y < length; y++) { // Iterate through sub index
             // Adds 1 to count and then prints it asking for an input
